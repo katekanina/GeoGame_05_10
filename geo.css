@@ -1,0 +1,62 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.2em;
+}
+
+#greeting{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#StartClick{
+    margin: 0 auto;
+    width: 350px;
+    height: 50px;
+    text-align: center;
+
+}
+#gallery{
+    opacity: 0;
+    transition: 2s;
+    background: #aaa;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#gallery .drawings{
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+#gallery .drawings img{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    transition: 1s;
+}
+
+#gallery .drawings img.showed{
+    opacity: 1;
+    z-index: 100;
+}
+
+.buttons{
+    padding: 5px;
+}
+
