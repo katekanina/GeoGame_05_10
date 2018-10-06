@@ -48,50 +48,52 @@ function Find_the_flag(ID){
     }
 }
 
-
 start.onclick = SelectCountry;// выбираем страну, нажимая на кнопку "выбери страну"
 
 function SelectCountry() {// выбираем страну, нажимая на кнопку "выбери страну"
     var n = Math.floor(Math.random() * (max - min + 1)) + min;//случайное число
-
     start.value = countreisEn[n]; //название страны и ее номер в массиве
 
     CountryName(n);// вытаскивает название страны по фото флага
-
-    var i = 0;
-
-    next.onclick = Next;//просмотр фото вперед
-
-    function Next() {
-        images[i].className = '';
-        i++;
-        if (i >= images.length) {
-            i = 0;
-        }
-        images[i].className = 'showed';
-    }
-
-    prev.onclick = Prev;//просмотр фото назад
-
-    function Prev() {
-        images[i].className = '';
-        i--;
-        if (i < 0) {
-            i = images.length - 1;
-        }
-        images[i].className = 'showed';//показывает выбранную кликом фотку, остальные невидимые
-    }
-
 }
 
-function CountryName(k) { // эта ф-ция вызывается из кликов по кнопкам prev/next
+var slidexIndex = 0;
+
+next.onclick = Next;//просмотр фото вперед
+
+function Next() {
+    images[slidexIndex].className = '';
+
+    slidexIndex++;
+
+    if (slidexIndex >= images.length) {
+        slidexIndex = 0;
+    }
+
+    images[slidexIndex].className = 'showed';
+}
+
+prev.onclick = Prev;//просмотр фото назад
+
+function Prev() {
+    images[slidexIndex].className = '';
+    slidexIndex--;
+    if (slidexIndex < 0) {
+        slidexIndex = images.length - 1;
+    }
+    images[slidexIndex].className = 'showed';//показывает выбранную кликом фотку, остальные невидимые
+}
+
+Drawings.onclick = Find_the_flag;
+
+function CountryName(k)
+{   // эта ф-ция вызывается из кликов по кнопкам prev/next
     var imgSrc1 = document.querySelector('.showed');// элемент img с классом showed
     var ID = imgSrc1.id; // id этого элемента, он равен номеру страны флаг которой на фото
-    Drawings.onclick = Find_the_flag(k);
+
+    Find_the_flag(k);
 }
 
 function P() {
     Gallery.style.opacity = 1;//появляется окно с флагами
 }
-
-
